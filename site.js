@@ -9,7 +9,7 @@ const SITE = {
   links: [
     {label: "Email", href: "kwiecinskiwesley@gmail.com"},
     {label: "GitHub", href: "https://github.com/WesKw"},
-    {label: "CV", href: "#"}
+    {label: "CV", href: "data/CV/Kwiecinski_SE_Industry_v4.pdf"}
   ]
 };
 const POSTS = [
@@ -22,8 +22,10 @@ const PROJECTS = [
   {name: "Third project", desc: "Short description.", tags: ["PyTorch"], code: "", demo: ""}
 ];
 const PUBS = [
-  {title: "Placeholder paper title", authors: "W. Kwiecinski, A. Coauthor, B. Coauthor", venue: "Venue / Workshop", year: 2026, pdf: "", doi: "", note: "Published"},
-  {title: "Placeholder thesis or preprint title", authors: "W. Kwiecinski", venue: "arXiv / in preparation", year: 2026, pdf: "", doi: "", note: "Preprint"}
+  {title: "Analysis of ATLAS Derivation I/O on High-Performance Computing Systems", authors: "Kwiecinski, W.", venue: "Master's Thesis", year: 2026, pdf: "", doi: "", note: "Published"},
+  {title: "Characterizing event I/O access patterns in HEP using darshan", authors: "Yildiz, O., Wang, R., Gartung, P, Kwiecinski, W.", venue: "28th Conference on Computing in High Energy and Nuclear Physics", year: 2026, pdf: "", doi: "", note: ""},
+  {title: "Evaluating I/O Behavior of ATLAS Derivations Across Container Runtimes on HPC Platforms", authors: "Kwiecinski, W., Papka, M.", venue: "Greater Chicago Area Systems Research Workshop", year: 2026, note: "Poster"}
+  {title: "ORCHA – A Performance Portability System for Post Exascale Systems", authors: "Lee, Y., Weide, K., Kwiecinski, W., O’Neal, J., Rudi, J., Dubey, A.", venue: "", year: 2025, pdf: "", doi: "https://doi.org/10.48550/arXiv.2507.09337", note: ""}
 ];
 /* ===== END EDIT SECTION ===== */
 
