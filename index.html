@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wesley Kwiecinski</title>
+<style>
+:root{--bg:#fafaf7;--surface:#fff;--text:#1d1f23;--muted:#6a6f78;--accent:#b4381f;--line:#e4e3de;--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14161a;--surface:#1c1f25;--text:#e8e8e4;--muted:#9096a0;--accent:#ff7a59;--line:#2c3038;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14161a;--surface:#1c1f25;--text:#e8e8e4;--muted:#9096a0;--accent:#ff7a59;--line:#2c3038;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 var(--font)}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+.bar{max-width:820px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-weight:700;color:var(--text)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--muted);padding:4px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--text);text-decoration:none}
+nav a.on{color:var(--text);border-color:var(--accent)}
+main{max-width:820px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:2.1rem;line-height:1.2;margin:0 0 8px}
+h2{font-size:1.25rem;margin:40px 0 14px}
+.sub{color:var(--muted);margin:0 0 24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:12px}
+.card h3{margin:0 0 4px;font-size:1.05rem}
+.card p{margin:6px 0 0}
+.meta{color:var(--muted);font-size:.88rem}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tag{font:.75rem var(--mono);border:1px solid var(--line);border-radius:999px;padding:2px 9px;color:var(--muted)}
+.links{display:flex;gap:14px;margin-top:10px;font-size:.9rem;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.more{display:inline-block;margin-top:4px;font-size:.92rem}
+footer{max-width:820px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:.88rem}
+</style>
+</head>
+<body>
+<header><div class="bar">
+  <a class="brand" href="#home">Wesley Kwiecinski</a>
+  <nav id="nav">
+    <a href="#home" data-p="home">Home</a>
+    <a href="#blog" data-p="blog">Blog</a>
+    <a href="#projects" data-p="projects">Software</a>
+    <a href="#publications" data-p="publications">Publications</a>
+  </nav>
+</div></header>
+<main id="view"></main>
+<footer id="foot"></footer>
+
+<script>
+/* ===== EDIT THIS SECTION ===== */
+const SITE = {
+  name: "Wesley Kwiecinski",
+  tagline: "M.S. candidate in Computer Science at UIC · HPC I/O and AI systems",
+  about: [
+    "I’m a graduate researcher at the Electronic Visualization Laboratory (EVL) at UIC, working with Argonne National Laboratory and CERN. My thesis characterizes ATLAS derivation I/O behavior across container runtimes on HPC systems using Darshan trace analysis.",
+    "I also work at ALCF on AuroraGPT pre-training and AI inference benchmarking. I’m supported by the C²-The-P² fellowship."
+  ],
+  interests: ["HPC I/O", "Container runtimes", "Darshan", "LLM pre-training", "Inference benchmarking"],
+  links: [
+    {label: "Email", href: "mailto:you@example.com"},
+    {label: "GitHub", href: "https://github.com/your-handle"},
+    {label: "Google Scholar", href: "https://scholar.google.com/"},
+    {label: "CV", href: "#"}
+  ]
+};
+const POSTS = [
+  {title: "Placeholder: Reading Darshan traces at scale", date: "2026-10-01", summary: "One or two sentences describing the post.", href: "#blog"},
+  {title: "Placeholder: Notes on container runtimes and I/O", date: "2026-09-14", summary: "One or two sentences describing the post.", href: "#blog"}
+];
+const PROJECTS = [
+  {name: "Project name", desc: "What it does and why it matters, in a sentence or two.", tags: ["Python", "HPC"], code: "https://github.com/your-handle/project", demo: ""},
+  {name: "Another project", desc: "Short description of the goal, your role, and the outcome.", tags: ["C++", "MPI"], code: "https://github.com/your-handle/another", demo: ""},
+  {name: "Third project", desc: "Short description.", tags: ["PyTorch"], code: "", demo: ""}
+];
+const PUBS = [
+  {title: "Placeholder paper title", authors: "W. Kwiecinski, A. Coauthor, B. Coauthor", venue: "Venue / Workshop", year: 2026, pdf: "", doi: "", note: "Published"},
+  {title: "Placeholder thesis or preprint title", authors: "W. Kwiecinski", venue: "arXiv / in preparation", year: 2026, pdf: "", doi: "", note: "Preprint"}
+];
+/* ===== END EDIT SECTION ===== */
+
+const $ = s => document.querySelector(s);
+const esc = t => String(t).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const tags = a => a && a.length ? `<div class="tags">${a.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>` : "";
+const post = p => `<div class="card"><h3><a href="${esc(p.href)}">${esc(p.title)}</a></h3><div class="meta">${esc(p.date)}</div><p>${esc(p.summary)}</p></div>`;
+const proj = p => `<div class="card"><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>${tags(p.tags)}<div class="links">${p.code?`<a href="${esc(p.code)}">Code</a>`:""}${p.demo?`<a href="${esc(p.demo)}">Demo</a>`:""}</div></div>`;
+const pub = p => `<div class="card"><h3>${esc(p.title)}</h3><div class="meta">${esc(p.authors)}</div><div class="meta"><em>${esc(p.venue)}</em>, ${esc(p.year)}${p.note?` · ${esc(p.note)}`:""}</div><div class="links">${p.pdf?`<a href="${esc(p.pdf)}">PDF</a>`:""}${p.doi?`<a href="${esc(p.doi)}">DOI</a>`:""}</div></div>`;
+
+const PAGES = {
+  home: () => `
+    <h1>${esc(SITE.name)}</h1>
+    <p class="sub">${esc(SITE.tagline)}</p>
+    ${SITE.about.map(t=>`<p>${esc(t)}</p>`).join("")}
+    ${tags(SITE.interests)}
+    <h2>Latest writing</h2>${POSTS.slice(0,2).map(post).join("")}<a class="more" href="#blog">All posts →</a>
+    <h2>Selected software</h2><div class="grid">${PROJECTS.slice(0,3).map(proj).join("")}</div><a class="more" href="#projects">All projects →</a>
+    <h2>Recent publications</h2>${PUBS.slice(0,2).map(pub).join("")}<a class="more" href="#publications">All publications →</a>`,
+  blog: () => `<h1>Blog</h1><p class="sub">Notes, write-ups, and ideas.</p>${POSTS.map(post).join("")}`,
+  projects: () => `<h1>Software</h1><p class="sub">Tools and projects I’ve built.</p><div class="grid">${PROJECTS.map(proj).join("")}</div>`,
+  publications: () => `<h1>Publications</h1><p class="sub">Papers, preprints, and talks.</p>${PUBS.map(pub).join("")}`
+};
+
+function route(){
+  const h = (location.hash || "#home").slice(1);
+  const page = PAGES[h] ? h : "home";
+  $("#view").innerHTML = PAGES[page]();
+  document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.p === page));
+  document.title = (page === "home" ? "" : page[0].toUpperCase() + page.slice(1) + " · ") + SITE.name;
+  window.scrollTo(0, 0);
+}
+$("#foot").innerHTML = SITE.links.map(l=>`<a href="${esc(l.href)}">${esc(l.label)}</a>`).join(" · ");
+window.addEventListener("hashchange", route);
+route();
+</script>
+</body>
+</html>
