@@ -8,9 +8,9 @@ const SITE = {
   ],
   interests: ["High-Performance Computing", "Data Visualization", "I/O", "Computational Science", "Performance Profiling", "Containerization", "Emulation", "Game Development"],
   links: [
-    {label: "Email", href: "kwiecinskiwesley@gmail.com"},
+    {label: "Email", href: "mailto:kwiecinskiwesley@gmail.com"},
     {label: "GitHub", href: "https://github.com/WesKw"},
-    {label: "CV", href: "data/CV/Kwiecinski_SE_Industry_v4.pdf"},
+    {label: "CV", href: "data/CV/Kwiecinski_DataEngineer_1pg.pdf"},
     {label: "LinkedIn", href: "https://www.linkedin.com/in/wesley-pk/"},
   ]
 };
